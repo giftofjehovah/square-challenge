@@ -2,6 +2,15 @@ class Square {
   constructor (length) {
     this.length = length
   }
+  render () {
+    return Array
+    .from('#'.repeat(this.length))
+    .map((row, i) => this.generateRow(i))
+    .reduce((prev, current) => prev += `${current}\n`, '')
+  }
+  generateRow (i) {
+    return this.isFirstAndLast(i) ? this.generateFirstOrLastRow() : this.generateMidRows()
+  }
   isFirstAndLast (index) {
     return index === 0 || index === this.length - 1
   }
@@ -10,12 +19,6 @@ class Square {
   }
   generateMidRows () {
     return '#' + ' '.repeat(this.length - 2) + '#'
-  }
-  render () {
-    Array
-    .from('#'.repeat(this.length))
-    .map((row, i) => this.isFirstAndLast(i) ? this.generateFirstOrLastRow() : this.generateMidRows())
-    .forEach(row => console.log(row))
   }
 }
 
