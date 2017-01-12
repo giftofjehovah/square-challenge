@@ -18,7 +18,7 @@ describe('Sqaure Class', () => {
     expect(threeSpace).toBe('####')
   })
 
-  test('render square of length 4', () => {
-    square.render()
-  })
+  // test('render square of length 4', () => {
+  //   square.render()
+  // })
 })
