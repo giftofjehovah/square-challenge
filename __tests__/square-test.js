@@ -8,14 +8,29 @@ describe('Sqaure Class', () => {
     expect(square.length).toBe(4)
   })
 
-  test('generate 3 space', () => {
-    const threeSpace = square.generate(' ', 3)
-    expect(threeSpace).toBe('   ')
+  test('generateFirstOrLastRow correctly', () => {
+    const row = square.generateFirstOrLastRow()
+    expect(row).toBe('####')
   })
 
-  test('generate 4 hex', () => {
-    const threeSpace = square.generate('#', 4)
-    expect(threeSpace).toBe('####')
+  test('generateMidRows correctly', () => {
+    const row = square.generateMidRows()
+    expect(row).toBe('#  #')
+  })
+
+  test('isFirstAndLast to return true for first row', () => {
+    const firstAndLast = square.isFirstAndLast(0)
+    expect(firstAndLast).toBeTruthy()
+  })
+
+  test('isFirstAndLast to return true for last row', () => {
+    const firstAndLast = square.isFirstAndLast(3)
+    expect(firstAndLast).toBeTruthy()
+  })
+
+  test('isFirstAndLast to return false for mid row', () => {
+    const firstAndLast = square.isFirstAndLast(2)
+    expect(firstAndLast).toBeFalsy()
   })
 
   // test('render square of length 4', () => {
