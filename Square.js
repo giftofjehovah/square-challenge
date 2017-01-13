@@ -6,7 +6,7 @@ class Square {
     return Array
     .from('#'.repeat(this.length))
     .map((row, i) => this.generateRow(i))
-    .reduce((prev, current) => prev += `${current}\n`, '')
+    .reduce((a, b) => `${a}${b}\n`, '')
   }
   generateRow (i) {
     return this.isFirstAndLast(i) ? this.generateFirstOrLastRow() : this.generateMidRows()
